@@ -2,3 +2,5 @@
 .DerivedData/
 backend/.env
 backend/data/
+xcuserdata/
+*.xcuserstate
