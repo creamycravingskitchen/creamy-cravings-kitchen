@@ -1,0 +1,380 @@
+:root {
+  --bg-top: #f9f0df;
+  --bg-bottom: #edcda6;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: rgba(255, 255, 255, 0.88);
+  --line: rgba(72, 49, 34, 0.08);
+  --text: #2f231a;
+  --muted: #6d5646;
+  --accent: #d15f2d;
+  --accent-soft: #f2b478;
+  --shadow: 0 30px 80px rgba(78, 44, 17, 0.16);
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 30%),
+    linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
+}
+
+.page-shell {
+  padding: 40px 24px 60px;
+}
+
+.device-row {
+  display: grid;
+  grid-template-columns: minmax(280px, 390px) minmax(640px, 980px);
+  gap: 32px;
+  align-items: start;
+  justify-content: center;
+}
+
+.device {
+  box-shadow: var(--shadow);
+}
+
+.iphone-frame {
+  padding: 14px;
+  border-radius: 44px;
+  background: #181311;
+}
+
+.iphone-frame .device-screen {
+  overflow: hidden;
+  border-radius: 34px;
+}
+
+.phone-notch {
+  width: 140px;
+  height: 28px;
+  margin: 10px auto -8px;
+  border-radius: 999px;
+  background: #181311;
+  position: relative;
+  z-index: 2;
+}
+
+.mac-frame {
+  border-radius: 26px;
+  overflow: hidden;
+  background: #f6efe5;
+}
+
+.mac-toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid var(--line);
+}
+
+.mac-toolbar span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e2b591;
+}
+
+.device-screen,
+.app-surface,
+.desktop-content,
+.sidebar {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.5), transparent 28%),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.95), rgba(244, 223, 198, 0.96));
+}
+
+.app-surface {
+  min-height: 812px;
+  padding: 28px 20px 24px;
+}
+
+.hero,
+.desktop-hero {
+  padding: 10px 4px 8px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.subhead {
+  margin-top: 12px;
+  max-width: 38rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.summary-grid,
+.desktop-summary {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.summary-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.desktop-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.summary-card {
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+}
+
+.summary-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.summary-card strong {
+  font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+  line-height: 1;
+}
+
+.accent-card {
+  background: linear-gradient(135deg, rgba(209, 95, 45, 0.92), rgba(242, 180, 120, 0.88));
+  color: #fff8f3;
+}
+
+.accent-card .summary-label {
+  color: rgba(255, 248, 243, 0.82);
+}
+
+.panel,
+.desktop-panel {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  backdrop-filter: blur(18px);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.panel-head span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.task,
+.task-row {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 248, 0.75);
+}
+
+.task {
+  grid-template-columns: 24px 1fr;
+  padding: 14px;
+}
+
+.task + .task,
+.task-row + .task-row {
+  margin-top: 12px;
+}
+
+.task-icon,
+.task-chip {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 999px;
+  border: 2px solid rgba(109, 86, 70, 0.4);
+}
+
+.complete .task-icon,
+.task-chip.complete {
+  border-color: var(--accent);
+  background:
+    radial-gradient(circle at center, var(--accent) 0 45%, transparent 48%);
+}
+
+.task-copy p,
+.task-row p {
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.mac-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 760px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 22px;
+  border-right: 1px solid var(--line);
+}
+
+.sidebar-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sidebar h2 {
+  margin-top: 10px;
+  font-size: 1.4rem;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.sidebar-nav a {
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sidebar-nav a.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.sidebar-footer {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.desktop-content {
+  padding: 28px;
+}
+
+.desktop-hero {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+button {
+  border: 0;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent), #bf4d1f);
+  color: #fff8f3;
+  font: inherit;
+  font-weight: 800;
+  box-shadow: 0 18px 30px rgba(209, 95, 45, 0.24);
+}
+
+.task-row {
+  grid-template-columns: 22px 1fr auto;
+  padding: 16px 18px;
+}
+
+.due-tag {
+  align-self: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(209, 95, 45, 0.12);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1100px) {
+  .device-row {
+    grid-template-columns: 1fr;
+  }
+
+  .iphone-frame {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 22px 14px 40px;
+  }
+
+  .mac-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .desktop-hero {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .desktop-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .task-row {
+    grid-template-columns: 22px 1fr;
+  }
+
+  .due-tag {
+    justify-self: start;
+  }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creamy Cravings Kitchen Plaid Redirect</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #f8f1e8;
+      --bg-bottom: #ead8c4;
+      --surface: rgba(255, 255, 255, 0.9);
+      --text: #2b211c;
+      --muted: #6b5647;
+      --accent: #b24a22;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    main {
+      width: min(680px, 100%);
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 24px 80px rgba(55, 35, 22, 0.14);
+    }
+
+    h1, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .status {
+      margin-top: 22px;
+      padding: 18px;
+      background: #fff8f2;
+      border-radius: 18px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p>Creamy Cravings Kitchen</p>
+    <h1>Plaid redirect received</h1>
+    <p>This page exists only to satisfy Plaid OAuth redirect requirements. After your bank login finishes, you can close this tab and return to the app.</p>
+    <div class="status">
+      <p id="details">Waiting for redirect details…</p>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const received = Array.from(params.entries());
+    const details = document.getElementById("details");
+
+    if (received.length === 0) {
+      details.textContent = "No query parameters were present. This is still a valid Plaid redirect page.";
+    } else {
+      details.innerHTML = "Redirect parameters detected: <code>" +
+        received.map(([key, value]) => `${key}=${value}`).join("&") +
+        "</code>";
+    }
+  </script>
+</body>
+</html>
